@@ -5,3 +5,10 @@
 #
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Mayor.create(:name => 'Daley', :city => cities.first)
+
+Language.find_or_create_by_name("Ruby")
+Language.find_or_create_by_name("Html")
+Language.find_or_create_by_name("Css")
+Language.find_or_create_by_name("Javascript")
+Language.find_or_create_by_name("Python")
+Language.find_or_create_by_name("C#")

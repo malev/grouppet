@@ -2,7 +2,9 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.0.4'
 gem 'mysql'
-gem "clearance"
+gem 'clearance'
+gem 'coderay', '0.9.7'
+gem 'formtastic', '1.2.3'
 
 group :development do
    gem "ruby-debug19"

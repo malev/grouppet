@@ -34,11 +34,16 @@ GEM
     clearance (0.10.3.2)
       diesel (~> 0.1.4)
       rails (~> 3.0.0)
+    coderay (0.9.7)
     columnize (0.3.2)
     diesel (0.1.4)
       railties (~> 3.0.3)
     erubis (2.6.6)
       abstract (>= 1.0.0)
+    formtastic (1.2.3)
+      actionpack (>= 2.3.7)
+      activesupport (>= 2.3.7)
+      i18n (~> 0.4)
     i18n (0.5.0)
     linecache19 (0.5.11)
       ruby_core_source (>= 0.1.4)
@@ -88,7 +93,9 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  clearance (= 0.10.3.2)
+  clearance
+  coderay (= 0.9.7)
+  formtastic (= 1.2.3)
   mysql
   rails (= 3.0.4)
   ruby-debug19
