@@ -10,14 +10,15 @@
 <body>
 
   <div class="login">
-    <%= link_to 'Log-out', sign_out_path, :method => :delete %>
+    <%= link_to 'Login', sign_in_path %>
+    <%= link_to 'Sign-Up', sign_up_path %>
   </div>
 
   <% flash.each do |key, value| -%>
     <div class="flash <%= key %>"><%= value %></div>
   <% end -%>
 
-  <%= yield %>
+<%= yield %>
 
 </body>
 </html>
