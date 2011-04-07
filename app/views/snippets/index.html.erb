@@ -2,5 +2,6 @@
 <% semantic_form_for @snippet, :url => snippets_path do |f|  %>
   <%= f.input :content %>
   <%= f.input :language_id, :as => :select, :include_blank => false, :collection => Language.list_all %>
+  <%= f.input :private %>
   <%= f.buttons %>
 <% end -%>

@@ -12,3 +12,6 @@ Language.find_or_create_by_name("Css")
 Language.find_or_create_by_name("Javascript")
 Language.find_or_create_by_name("Python")
 Language.find_or_create_by_name("C#")
+
+# Create default user
+User.create(:email => 'grouppet@gmail.com', :password => 123456)

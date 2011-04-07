@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>Grouppet</title>
-  <%= stylesheet_link_tag 'formtastic', 'syntax' %>
+  <%= stylesheet_link_tag 'formtastic', 'syntax', 'application' %>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tag %>
@@ -11,6 +11,7 @@
 
   <div class="login">
     <%= link_to 'Log-out', sign_out_path, :method => :delete %>
+    <%= link_to 'Manage Groups', groups_path %>
   </div>
 
   <% flash.each do |key, value| -%>
@@ -20,4 +21,10 @@
   <%= yield %>
 
 </body>
+<footer>
+  <% if Rails.env.development? %>
+    <div class="footer_params"><%= params.inspect %></div>
+    <div class="footer_session"><%= session.inspect %></div>
+  <% end %>
+</footer>
 </html>

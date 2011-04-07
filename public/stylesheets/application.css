@@ -1,0 +1,26 @@
+footer {
+    margin-top: 20px;
+}
+
+div.clear {
+    clear: both;
+}
+
+/**************************************** USER GROUPS ************************************************/
+
+div.groups_content {
+    margin-bottom: 60px;
+}
+
+div.groups_content ul.headers {
+    text-align: center;
+}
+
+div.groups_content ul.headers li {
+    list-style: none;
+    float: left;
+    width: 200px;
+    font-weight: bolder;
+    padding: 10px;
+    margin: 0 auto;
+}
