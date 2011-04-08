@@ -5,6 +5,8 @@ gem 'mysql'
 gem 'clearance'
 gem 'coderay', '0.9.7'
 gem 'formtastic', '1.2.3'
+gem 'faker'
+gem 'populator', '1.0.0'
 
 group :development do
    gem "ruby-debug19"

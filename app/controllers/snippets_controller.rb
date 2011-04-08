@@ -4,7 +4,13 @@ class SnippetsController < ApplicationController
   end
 
   def show
-    @snippet = Snippet.includes(:language).find(params[:id])
+    @snippet = Snippet.find_public(params[:sha]).includes(:language).first
+    if @snippet
+      render :show
+    else
+      flash[:error] = "Snippet not found."
+      redirect_to root_path
+    end
   end
 
   def create
@@ -12,7 +18,7 @@ class SnippetsController < ApplicationController
     @snippet.user_id = current_user.id if current_user
     if @snippet.save
       flash[:notice] = "You snippet has been created successfully."
-      render :show
+      redirect_to "/#{@snippet.public_sha}"
     else
       flash[:error] = "There was an error, please try again"
       render :new

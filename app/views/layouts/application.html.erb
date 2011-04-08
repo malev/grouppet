@@ -18,6 +18,15 @@
     <div class="flash <%= key %>"><%= value %></div>
   <% end -%>
 
+  <div class='menu'>
+    <ul class="list">
+      <li><%= link_to 'Public Timeline', public_snippets_path %></li>
+      <li><%= link_to 'Private Timeline', private_snippets_path %></li>
+      <li><%= link_to 'Friends', '#' %> |</li>
+      <li><%= link_to 'Account', '#' %></li>
+    </ul>
+  </div>
+
   <%= yield %>
 
 </body>

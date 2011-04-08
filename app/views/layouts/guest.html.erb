@@ -14,6 +14,12 @@
     <%= link_to 'Sign-Up', sign_up_path %>
   </div>
 
+  <div class='menu'>
+    <ul class="list">
+      <li><%= link_to 'Timeline', public_snippets_path %></li>
+    </ul>
+  </div>
+
   <% flash.each do |key, value| -%>
     <div class="flash <%= key %>"><%= value %></div>
   <% end -%>
