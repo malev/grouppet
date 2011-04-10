@@ -7,25 +7,17 @@ gem 'coderay', '0.9.7'
 gem 'formtastic', '1.2.3'
 gem 'faker'
 gem 'populator', '1.0.0'
+gem 'unicorn'
 
-group :development do
-   gem "ruby-debug19"
+group :development, :test do
+  gem "ruby-debug19"
+  gem 'rspec-rails'
+  gem 'mocha'
+  gem 'watchr'
+  gem 'faker'
+  gem 'shoulda-matchers'
+  gem 'factory_girl_rails'
 end
-
-# Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
-
-# gem 'sqlite3'
-
-# Use unicorn as the web server
-# gem 'unicorn'
-
-# Deploy with Capistrano
-# gem 'capistrano'
-
-# To use debugger (ruby-debug for Ruby 1.8.7+, ruby-debug19 for Ruby 1.9.2+)
-# gem 'ruby-debug'
-# gem 'ruby-debug19', :require => 'ruby-debug'
 
 # Bundle the extra gems:
 # gem 'bj'
