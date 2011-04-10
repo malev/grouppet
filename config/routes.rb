@@ -1,7 +1,17 @@
 Grouppet::Application.routes.draw do
 
+  namespace "blog" do
+    resources :posts
+  end
+
   resource :session
-  resources :snippets, :member => { :public => :get, :private => :get}
+  resources :snippets do
+    member do
+      get 'public'
+      get 'private'
+    end
+  end
+
   resources :groups, :controller => 'user_groups', :as => :groups
 
   match '/:sha' => "snippets#show"
