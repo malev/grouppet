@@ -13,7 +13,7 @@ class UserFriend < ActiveRecord::Base
   }
 
   def friendship_uniqueness
-    unless UserFriend.invited(user_id, friend_id).empty? && UserFriend.invitations(user_id, friend_id).empty?
+    unless self.class.invited(user_id, friend_id).empty? && self.class.invitations(user_id, friend_id).empty?
       errors.add_to_base("You already have that friend.")
     end
   end
