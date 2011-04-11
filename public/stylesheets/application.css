@@ -3,6 +3,10 @@ body{
     margin:0;
 }
 h1 { font-family: 'Amaranth', arial, serif; }
+/* MONOSPACE PARTS! */
+textarea#snippet_content{
+    font-family: 'Droid Sans Mono', arial, serif;
+}
 .page_left {
     background: url("/images/page-left-bg.gif") repeat-x scroll 0 50px #FFFFFF;
     clear: left;

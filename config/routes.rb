@@ -18,6 +18,5 @@ Grouppet::Application.routes.draw do
   resource :session
   match '/sign_out' => "sessions#destroy", :as => 'sign_out'
 
-  #match '/:sha' => "snippets#show"
   root :to => "snippets#index"
 end
