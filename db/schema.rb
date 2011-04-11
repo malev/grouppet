@@ -10,7 +10,32 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110408033833) do
+ActiveRecord::Schema.define(:version => 20110410235325) do
+
+  create_table "categories", :force => true do |t|
+    t.string   "name"
+    t.integer  "posts_count", :default => 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "categorizations", :force => true do |t|
+    t.integer  "entry_id"
+    t.integer  "category_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "entries", :force => true do |t|
+    t.string   "name"
+    t.text     "body"
+    t.string   "type"
+    t.integer  "user_id"
+    t.integer  "revision",   :default => 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "status",     :default => "draft"
+  end
 
   create_table "languages", :force => true do |t|
     t.string   "name"

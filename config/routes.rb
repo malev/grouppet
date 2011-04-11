@@ -1,10 +1,12 @@
 Grouppet::Application.routes.draw do
 
+  match "/blog" => "blog/posts#index"
+  match "/blog/:id" => "blog/pages#show"
   namespace "blog" do
     resources :posts
+    resources :pages
   end
 
-  resource :session
   resources :snippets do
     member do
       get 'public'
@@ -13,9 +15,9 @@ Grouppet::Application.routes.draw do
   end
 
   resources :groups, :controller => 'user_groups', :as => :groups
-
-  match '/:sha' => "snippets#show"
+  resource :session
   match '/sign_out' => "sessions#destroy", :as => 'sign_out'
 
+  #match '/:sha' => "snippets#show"
   root :to => "snippets#index"
 end

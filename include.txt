@@ -1,0 +1,78 @@
+Estoy queriendo hacer un plugin de rails y eso me obligó a refrescar mi memoria acerca de clases y módulos en ruby. Yo hace un tiempo escribí un artículo sobre <a href='http://blog.malev.com.ar/2010/11/30/include-in-ruby/'>include in Ruby</a>, ahora lo pienso ampliar con <strong>extend</strong>:
+
+<pre lang='ruby'>
+module Foo
+  def foo
+    puts 'heyyyyoooo!'
+  end
+end
+
+class Baz
+  extend Foo
+end
+</pre>
+Baz.foo # heyyyyoooo!
+Baz.new.foo # NoMethodError: undefined method ‘foo’ for #<Baz:0x1e708>
+
+En síntesis, extend es usado para agregar métodos de clase. Y, hablando de métodos de clase, cómo se definen?
+
+<pre lang='ruby'>
+class Foo
+  def self.foo
+    puts "soy un metodo de clase"
+  end
+
+  class << self
+    def xoo
+      puts "yo tambien soy un metodo de clase"
+    end
+    # en este espacio se pueden definir métodos de clase
+  end
+
+  def Foo.last_way
+    puts "por ultimo, soy otro metodo de clase"
+  end
+end
+</pre>
+El problema es que con todo esto, no alcanza para entender el funcionamiento de plugis o gemas, ya que sus estructuras nunca son tan simples como lo que vimos aquí arriba. Por ejemplo, clearance, una gema que uso para autenticación en Rails tiene un módulo con la siguiente estructura:
+<pre lang='ruby'>
+# lib/clearance/authentication.rb
+module Clearance
+  module Authentication
+    def self.included(controller)
+      controller.send(:include, InstanceMethods)
+      controller.extend(ClassMethods)
+    end
+
+    module ClassMethods
+      def self.extended(controller)
+        controller.helper_method :current_user, :signed_in?, :signed_out?
+        controller.hide_action :current_user, :current_user=,
+                               :signed_in?, :signed_out?,
+                               :sign_in, :sign_out,
+                               :authenticate, :deny_access
+      end
+    end
+
+    module InstanceMethods
+      def current_user
+        @_current_user ||= user_from_cookie
+      end
+      ...
+    end
+  end
+end
+</pre>
+A su vez, este módulo es incluído en application_controller.rb:
+<pre lang='ruby'>
+class ApplicationController < ActionController::Base
+  include Clearance::Authentication
+end
+</pre>
+Primer punto, la estructura de directorios/archivos se corresponde con jerarquía de módulos. Después tenemos un módulo con métodos de clase y otro con métodos de instancias. Ambos son incluidos con el método "self.include(controller)":
+<pre lang='ruby'>
+def self.included(controller)
+  controller.send(:include, InstanceMethods)
+  controller.extend(ClassMethods)
+end
+</pre>

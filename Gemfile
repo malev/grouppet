@@ -11,6 +11,7 @@ gem 'unicorn'
 
 group :development, :test do
   gem "ruby-debug19"
+  gem 'spork'
   gem 'rspec-rails'
   gem 'mocha'
   gem 'watchr'

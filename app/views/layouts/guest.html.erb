@@ -4,33 +4,40 @@
   <title>Grouppet</title>
   <%= stylesheet_link_tag 'formtastic', 'syntax', 'application' %>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+  <link href='http://fonts.googleapis.com/css?family=Amaranth' rel='stylesheet' type='text/css'>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tag %>
 </head>
 <body>
-
-  <div class="login">
-    <%= link_to 'Login', sign_in_path %>
-    <%= link_to 'Sign-Up', sign_up_path %>
+  <div class='page_left'>
+    <div class='content'>
+      <h1>Grouppet</h1>
+      <div class='logo'></div>
+      <div class="login">
+        <%= link_to 'Login', sign_in_path %>
+        <%= link_to 'Sign-Up', sign_up_path %>
+      </div>
+      <% flash.each do |key, value| -%>
+       <div class="flash <%= key %>"><%= value %></div>
+      <% end -%>
+      <div class='menu'>
+      <!--
+        <ul class="list">
+          <li><%#= link_to 'Timeline', public_snippets_path %></li>
+        </ul>-->
+      </div>
+    </div>
+    <div class='footer'></div>
   </div>
-
-  <div class='menu'>
-    <ul class="list">
-      <li><%= link_to 'Timeline', public_snippets_path %></li>
-    </ul>
+  <div class='page_right'>
+    <div class='content'>
+      <%= yield %>
+    </div>
   </div>
-
-  <% flash.each do |key, value| -%>
-    <div class="flash <%= key %>"><%= value %></div>
-  <% end -%>
-
-<%= yield %>
-
-</body>
-<footer>
+  <div class='footer'></div>
   <% if Rails.env.development? %>
     <div class="footer_params"><%= params.inspect %></div>
     <div class="footer_session"><%= session.inspect %></div>
   <% end %>
-</footer>
+</body>
 </html>

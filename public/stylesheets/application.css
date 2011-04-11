@@ -1,11 +1,95 @@
-footer {
-    margin-top: 20px;
+body{
+    font-family:verdana;
+    margin:0;
 }
-
+h1 { font-family: 'Amaranth', arial, serif; }
+.page_left {
+    background: url("/images/page-left-bg.gif") repeat-x scroll 0 50px #FFFFFF;
+    clear: left;
+    color: #BEBEBE;
+    float: left;
+    height: 100%;
+    position: relative;
+    text-align: right;
+    width: 400px;
+}
+.page_left .content {
+    padding: 90px 40px 40px;
+    text-align: left;
+}
+.page_left #flash{
+    margin: 0 0 10px;
+    padding: 5px 0;
+    text-align: center;
+}
+.page_left #flash.success, .page_left #flash.notice{
+    border: 1px solid green;
+    color: green;
+}
+.page_left #flash .fatal, .page_left #flash .error{
+    border: 1px solid red;
+    color: red;
+}
+.page_left .footer {
+    bottom: 40px;
+    color: #AAAAAA;
+    font-size: 80%;
+    left: 0;
+    line-height: 1.8em;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+}
+.page_right {
+    background: url("/images/page-right-bg.gif") repeat-x scroll 0 50px #3D3D3D;
+    color: #CACACA;
+    line-height: 1.2em;
+    margin-left: 400px;
+    min-height: 100%;
+}
+.page_right .content {
+    font-size: 80%;
+    padding: 80px 60px 60px;
+}
 div.clear {
     clear: both;
 }
-
+form li{
+    list-style: none outside none;
+}
+form label{
+    display: block;
+    width: 100%;
+}
+form textarea#snippet_content{
+    width:100%;
+}
+form div.bottom{
+     margin: 10px 0;
+}
+form div.bottom li{
+    display: inline;
+    width:30%;
+    float:left;
+    display:block;
+}
+form .bottom label{
+    width:100px;
+    float:left;
+}
+form .bottom input[type='checkbox'] {
+    margin: 3px 9px 0 0;
+}
+form .bottom input{
+    float:left;
+}
+form .bottom fieldset ol li{
+    overflow:visible;
+}
+/**************************************** LOGIN FORM ************************************************/
+.submit_field{
+    margin-top: 5px;
+}
 /**************************************** USER GROUPS ************************************************/
 
 div.groups_content {
