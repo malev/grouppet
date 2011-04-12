@@ -27,18 +27,9 @@ describe "blogs routes" do
 end
 
 describe 'snippets routes' do
-  it "route '/' should show new snippet view" do
-    { :get => '/' }.should route_to(
-      :controller => 'snippets',
-      :action => 'index'
-    )
-  end
-
-  it "route '/:sha' should route to show snippet" do
-    { :get => '/999999'}.should route_to(
-      :controller => 'snippets',
-      :action => 'show',
-      :sha => '999999'
-    )
+  it "should have snippets routes" do
+    { :get => 'snippets' }.should route_to( :controller => 'snippets', :action => 'index')
+    { :get => 'snippets/1' }.should route_to( :controller => 'snippets', :action => 'show', :id => '1')
+    { :post => 'snippets' }.should route_to( :controller => 'snippets', :action => 'create')
   end
 end

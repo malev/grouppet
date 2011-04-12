@@ -4,15 +4,16 @@ describe 'GET blog/pages/1' do
   render_views
 
   describe 'with valid id' do
-    before(:each) do
-      get "blog/1"
-      @page = Factory(:page)
-    end
+#    before(:each) do
+#      @snippet = mock_model(Snippet)
+#      get "blog/1"
+#      @page = Factory(:page)
+#    end
 
-    it 'should accept pettition' do
-      flash[:notice].should be_blank
-      response.should render_template("show")
-    end
+#    it 'should accept pettition' do
+#      flash[:notice].should be_blank
+#      response.should render_template("show")
+#    end
 
 #    it 'should find a page and return an object' do
 #      Page.should_receive(:this_page).with("1").and_return(@page)

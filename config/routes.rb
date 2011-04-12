@@ -8,7 +8,7 @@ Grouppet::Application.routes.draw do
   end
 
   resources :snippets do
-    member do
+    collection do
       get 'public'
       get 'private'
     end

@@ -31,11 +31,24 @@ GEM
     archive-tar-minitar (0.5.2)
     arel (2.0.9)
     builder (2.1.2)
+    capybara (0.4.1.2)
+      celerity (>= 0.7.9)
+      culerity (>= 0.2.4)
+      mime-types (>= 1.16)
+      nokogiri (>= 1.3.3)
+      rack (>= 1.0.0)
+      rack-test (>= 0.5.4)
+      selenium-webdriver (>= 0.0.27)
+      xpath (~> 0.1.3)
+    celerity (0.8.9)
+    childprocess (0.1.8)
+      ffi (~> 1.0.6)
     clearance (0.10.3.2)
       diesel (~> 0.1.4)
       rails (~> 3.0.0)
     coderay (0.9.7)
     columnize (0.3.2)
+    culerity (0.2.15)
     diesel (0.1.4)
       railties (~> 3.0.3)
     diff-lcs (1.1.2)
@@ -47,11 +60,14 @@ GEM
       railties (>= 3.0.0)
     faker (0.9.5)
       i18n (~> 0.4)
+    ffi (1.0.7)
+      rake (>= 0.8.7)
     formtastic (1.2.3)
       actionpack (>= 2.3.7)
       activesupport (>= 2.3.7)
       i18n (~> 0.4)
     i18n (0.5.0)
+    json_pure (1.5.1)
     kgio (2.3.3)
     linecache19 (0.5.11)
       ruby_core_source (>= 0.1.4)
@@ -61,8 +77,8 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.16)
-    mocha (0.9.12)
     mysql (2.8.1)
+    nokogiri (1.4.4)
     polyglot (0.3.1)
     populator (1.0.0)
     rack (1.2.2)
@@ -107,6 +123,12 @@ GEM
       ruby-debug-base19 (>= 0.11.19)
     ruby_core_source (0.1.4)
       archive-tar-minitar (>= 0.5.2)
+    rubyzip (0.9.4)
+    selenium-webdriver (0.1.4)
+      childprocess (>= 0.1.7)
+      ffi (>= 1.0.7)
+      json_pure
+      rubyzip
     shoulda-matchers (1.0.0.beta2)
     spork (0.9.0.rc)
     thor (0.14.6)
@@ -117,23 +139,25 @@ GEM
       kgio (~> 2.3)
       rack
     watchr (0.7)
+    xpath (0.1.3)
+      nokogiri (~> 1.3)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  capybara (= 0.4.1.2)
   clearance
   coderay (= 0.9.7)
-  factory_girl_rails
-  faker
+  factory_girl_rails (= 1.0.1)
+  faker (= 0.9.5)
   formtastic (= 1.2.3)
-  mocha
   mysql
   populator (= 1.0.0)
   rails (= 3.0.4)
-  rspec-rails
-  ruby-debug19
-  shoulda-matchers
-  spork
+  rspec-rails (= 2.5.0)
+  ruby-debug19 (= 0.11.6)
+  shoulda-matchers (= 1.0.0.beta2)
+  spork (= 0.9.0.rc)
   unicorn
-  watchr
+  watchr (= 0.7)

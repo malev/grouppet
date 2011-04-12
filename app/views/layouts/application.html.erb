@@ -28,10 +28,12 @@
         <% end -%>
       </div>
       <div class='menu'>
-      <!--
         <ul class="list">
-          <li><%#= link_to 'Timeline', public_snippets_path %></li>
-        </ul>-->
+          <li><%= link_to 'Timeline', public_snippets_path %></li>
+          <% if current_user %>
+            <li><%= link_to 'Private timeline', private_snippets_path %></li>
+          <% end -%>
+        </ul>
       </div>
     </div>
     <div class='footer'></div>
