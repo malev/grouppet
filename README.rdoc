@@ -7,8 +7,6 @@ It's tested with capybara and friends
 
 == Authors and credits
 Authors::                gusaar, malev
-Original announcement::  http://errtheblog.com/post/929
-Original PHP source::    http://www.strangerstudios.com/sandbox/pagination/diggstyle.php
 
 == More info
 You can find me on my personal [blog](http://blog.malev.com.ar) or here!
