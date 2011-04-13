@@ -11,10 +11,10 @@ class Snippet < ActiveRecord::Base
   scope :find_public, lambda { |sha| where("private = 0 AND public_sha = ?", sha).limit(1) }
   scope :find_private, lambda { |sha| where("private = 1 AND public_sha = ?", sha).limit(1) }
   scope :public, where("private = 0").order("created_at DESC")
+  scope :private, where("private = 1").order("created_at DESC")
 
   def generate_sha
     sha = Digest::SHA1.hexdigest("--#{Time.now}--#{Kernel.rand}--")
-
     self.public_sha = if self.private
       sha[0..15]
     else

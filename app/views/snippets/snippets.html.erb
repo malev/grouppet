@@ -1,0 +1,8 @@
+<div class="snippets">
+  <% @snippets.each do |snip| %>
+    <div clasS='snippet'>
+      <%= raw colorize(snip) %>
+    </div>
+  <% end -%>
+</div>
+<%= link_to 'Home', root_path %>

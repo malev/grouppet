@@ -2,7 +2,7 @@ Factory.define :user do |user|
   user.id 1
   user.email Faker::Internet.email
   user.password "password"
-  user.password_confirmation "passoword"
+  user.password_confirmation "password"
 end
 
 Factory.define :post do |post|
@@ -33,11 +33,9 @@ Factory.define :snippet do |sni|
   sni.language_id 1
 end
 
-Factory.define :private_snippet do |sni|
-  sni.id 1
-  sni.content "private lorem"
+Factory.define :privsnippet, :parent => :snippet do |sni|
   sni.private 1
+  sni.content "private lorem"
   sni.public_sha '999999999999'
-  sni.language_id 1
   sni.user_id 1
 end

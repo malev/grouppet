@@ -17,11 +17,21 @@ class SnippetsController < ApplicationController
     @snippet = Snippet.new params[:snippet]
     @snippet.user_id = current_user.id if current_user
     if @snippet.save
-      flash[:notice] = "You snippet has been created successfully."
-      render :show
+      flash[:notice] = "New snippet created."
+      redirect_to snippet_path(@snippet.public_sha)
     else
       flash[:error] = "There was an error, please try again"
       render :new
     end
+  end
+
+  def public
+    @snippets = Snippet.public
+    render :snippets
+  end
+
+  def private
+    @snippets = Snippet.private
+    render :snippets
   end
 end

@@ -32,7 +32,8 @@ describe "Snippets" do
     it 'should list all private snippets' do
       current_user = Factory(:user)
       @language = Factory(:language)
-      @snippet = Factory(:private_snippet)
+      @privsnippet = Factory(:privsnippet)
+      Snippet.should_receive(:private).and_return([@privsnippet])
       visit private_snippets_path
       page.should have_content("private lorem")
     end

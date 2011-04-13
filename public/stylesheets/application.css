@@ -57,6 +57,7 @@ textarea#snippet_content{
 }
 .page_right .content {
     font-size: 80%;
+    min-height: 480px;
     padding: 80px 60px 60px;
 }
 div.clear {
