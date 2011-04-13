@@ -63,6 +63,7 @@ textarea#snippet_content{
 div.clear {
     clear: both;
 }
+
 form li{
     list-style: none outside none;
 }
