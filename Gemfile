@@ -7,6 +7,7 @@ gem 'coderay', '0.9.7'
 gem 'formtastic', '1.2.3'
 gem 'populator', '1.0.0'
 gem 'unicorn'
+gem 'rails3-jquery-autocomplete'
 
 group :development, :test do
   gem "ruby-debug19", '0.11.6'

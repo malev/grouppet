@@ -11,6 +11,14 @@ class User < ActiveRecord::Base
 
   # A merge of invited friends and asked friendship users.
   def my_friends
-    (invited_friends + asked_friendships).compact.uniq
-  end  
+    (asked_friendships(true) + requested_friendships(true)).compact.uniq
+  end
+
+  def asked_friendships(status)
+    user_invited_friends.select{|uaf| uaf.accepted == status}
+  end
+
+  def requested_friendships(status)
+    user_asked_friendships.select{|uaf| uaf.accepted == status}
+  end
 end

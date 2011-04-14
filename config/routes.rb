@@ -14,6 +14,15 @@ Grouppet::Application.routes.draw do
     end
   end
 
+  resources :friends do
+    collection do
+      get :autocomplete_user_email
+      get :accept_friendship
+      get :cancel_friendship
+      get :remove_friendship
+    end
+  end
+
   resources :groups, :controller => 'user_groups', :as => :groups
   resource :session
   match '/sign_out' => "sessions#destroy", :as => 'sign_out'

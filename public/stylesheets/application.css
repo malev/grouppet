@@ -100,21 +100,22 @@ form .bottom fieldset ol li{
 .submit_field{
     margin-top: 5px;
 }
-/**************************************** USER GROUPS ************************************************/
 
-div.groups_content {
-    margin-bottom: 60px;
-}
-
-div.groups_content ul.headers {
-    text-align: center;
-}
-
-div.groups_content ul.headers li {
-    list-style: none;
-    float: left;
-    width: 200px;
-    font-weight: bolder;
+/**************************************** USER FRIENDS ************************************************/
+div.friend_row {
+    border: 2px solid #545454;
+    background-color: #9FB6CD;
+    color: #000;
+    margin-bottom: 2px;
     padding: 10px;
-    margin: 0 auto;
+    height: 25px;
+}
+
+div.friend_row .left {
+    float: left;
+    margin-top: 4px;
+}
+
+div.friend_row .right {
+    float: right;
 }

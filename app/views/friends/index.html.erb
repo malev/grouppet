@@ -1,0 +1,34 @@
+<h2>My Friends</h2>
+
+<%= form_for :add_friend, :url => friends_path do |f| %>
+  Seek Them: <%= f.autocomplete_field :user_email, autocomplete_user_email_friends_path %>
+  <%= f.submit 'Ask' %>
+<% end %>
+
+</br>
+<h3>Friends</h3>
+<% current_user.my_friends.select{|f| (!f.user_invited_friends.empty? && f.user_invited_friends.first.accepted) || (!f.user_asked_friendships.empty? && f.user_asked_friendships.first.accepted) }.each do |friend| %>
+  <div class="friend_row">
+    <div class="left"><%= friend.email %></div>
+    <div class="right"><%= button_to 'Delete', remove_friendship_friends_path %></div>
+    <div class="clear"></div>
+  </div>
+<% end %>
+
+<h3>Asked Friendships</h3>
+<% current_user.asked_friendships(false).each do  |request| %>
+  <div class="friend_row">
+    <div class="left"><%= request.friend.email %></div>
+    <div class="right"><%= button_to 'Cancel', cancel_friendship_friends_path %></div>
+    <div class="clear"></div>
+  </div>
+<% end %>
+
+<h3>Requested Friendships</h3>
+<% current_user.requested_friendships(false).each do  |request| %>
+  <div class="friend_row">
+    <div class="left"><%= request.user.email %></div>
+    <div class="right"><%= button_to 'Accept', accept_friendship_friends_path %></div>
+    <div class="clear"></div>
+  </div>
+<% end %>

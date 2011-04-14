@@ -2,11 +2,11 @@
 <html>
 <head>
   <title>Grouppet</title>
-  <%= stylesheet_link_tag 'formtastic', 'syntax', 'application' %>
+  <%= stylesheet_link_tag 'formtastic', 'syntax', 'application', 'jquery-ui/jquery-ui' %>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
   <link href='http://fonts.googleapis.com/css?family=Amaranth' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Droid+Sans+Mono' rel='stylesheet' type='text/css'>
-  <%= javascript_include_tag 'application' %>
+  <%= javascript_include_tag 'application', 'autocomplete-rails', 'jquery-ui' %>
   <%= csrf_meta_tag %>
 </head>
 <body>
@@ -32,6 +32,7 @@
           <li><%= link_to 'Timeline', public_snippets_path %></li>
           <% if current_user %>
             <li><%= link_to 'Private timeline', private_snippets_path %></li>
+            <li><%= link_to 'My Friends', friends_path %></li>
           <% end -%>
         </ul>
       </div>
