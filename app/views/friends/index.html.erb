@@ -7,10 +7,10 @@
 
 </br>
 <h3>Friends</h3>
-<% current_user.my_friends.select{|f| (!f.user_invited_friends.empty? && f.user_invited_friends.first.accepted) || (!f.user_asked_friendships.empty? && f.user_asked_friendships.first.accepted) }.each do |friend| %>
+<% current_user.my_friends.each do |friend| %>
   <div class="friend_row">
     <div class="left"><%= friend.email %></div>
-    <div class="right"><%= button_to 'Delete', remove_friendship_friends_path %></div>
+    <div class="right"><%= button_to_function 'Delete', "removeFriendship(#{friend.id})" %></div>
     <div class="clear"></div>
   </div>
 <% end %>
@@ -19,7 +19,7 @@
 <% current_user.asked_friendships(false).each do  |request| %>
   <div class="friend_row">
     <div class="left"><%= request.friend.email %></div>
-    <div class="right"><%= button_to 'Cancel', cancel_friendship_friends_path %></div>
+    <div class="right"><%= button_to_function 'Cancel', "cancelFriendship(#{request.id})" %></div>
     <div class="clear"></div>
   </div>
 <% end %>
@@ -28,7 +28,7 @@
 <% current_user.requested_friendships(false).each do  |request| %>
   <div class="friend_row">
     <div class="left"><%= request.user.email %></div>
-    <div class="right"><%= button_to 'Accept', accept_friendship_friends_path %></div>
+    <div class="right"><%= button_to_function 'Accept', "acceptFriendship(#{request.id})" %></div>
     <div class="clear"></div>
   </div>
 <% end %>

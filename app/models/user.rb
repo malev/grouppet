@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
 
   # A merge of invited friends and asked friendship users.
   def my_friends
-    (asked_friendships(true) + requested_friendships(true)).compact.uniq
+    (asked_friendships(true).collect{|uf| uf.user } + requested_friendships(true).collect{|uf| uf.friend }).compact.uniq
   end
 
   def asked_friendships(status)

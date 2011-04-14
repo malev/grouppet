@@ -23,12 +23,45 @@ class FriendsController < ApplicationController
   end
 
   def accept_friendship
+    user_friend = UserFriend.find(params[:id])
+    if current_user == user_friend.friend
+      user_friend.update_attribute(:accepted, true)
+      respond_to do |format|
+        format.js { render :json => { :success => true }.to_json }
+      end
+    else
+      respond_to do |format|
+        format.json { render :json => { :errors => "Invalid action." }.to_json }
+      end
+    end
   end
   
   def cancel_friendship
+    user_friend = UserFriend.find(params[:id])
+    if current_user == user_friend.user
+      user_friend.destroy
+      respond_to do |format|
+        format.js { render :json => { :success => true }.to_json }
+      end
+    else
+      respond_to do |format|
+        format.json { render :json => { :errors => "Invalid action." }.to_json }
+      end
+    end
   end
   
   def remove_friendship
+    user_friend = UserFriend.find(params[:id])
+    if current_user == user_friend.user || current_user == user_friend.friend
+      user_friend.destroy
+      respond_to do |format|
+        format.js { render :json => { :success => true }.to_json }
+      end
+    else
+      respond_to do |format|
+        format.json { render :json => { :errors => "Invalid action." }.to_json }
+      end
+    end
   end
 
 end
