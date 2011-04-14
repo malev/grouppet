@@ -1,0 +1,8 @@
+<h1>About us</h1>
+<% if @about_page %>
+  <div class="static_page">
+    <%= @about_page.body %>
+  </div>
+<% else -%>
+  <em>Page under construction</em>
+<% end -%>

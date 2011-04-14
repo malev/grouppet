@@ -1,11 +1,6 @@
 Grouppet::Application.routes.draw do
 
-  match "/blog" => "blog/posts#index"
-  match "/blog/:id" => "blog/pages#show"
-  namespace "blog" do
-    resources :posts
-    resources :pages
-  end
+  match "/about" => 'main#about'
 
   resources :snippets do
     collection do

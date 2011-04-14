@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110410235325) do
+ActiveRecord::Schema.define(:version => 20110414010812) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -50,22 +50,25 @@ ActiveRecord::Schema.define(:version => 20110410235325) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "language_id"
-    t.boolean  "private"
     t.string   "public_sha"
     t.string   "private_sha"
+    t.boolean  "private",     :default => false
   end
 
-  create_table "user_groups", :force => true do |t|
-    t.integer  "user_id",     :null => false
-    t.string   "name"
-    t.text     "description"
+  create_table "static_pages", :force => true do |t|
+    t.string  "title",    :null => false
+    t.text    "body"
+    t.string  "group",    :null => false
+    t.integer "user_id"
+    t.integer "position"
+  end
+
+  create_table "user_friends", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "friend_id"
+    t.boolean  "accepted",   :default => false
     t.datetime "created_at"
     t.datetime "updated_at"
-  end
-
-  create_table "user_user_groups", :force => true do |t|
-    t.integer "member_id"
-    t.integer "user_group_id"
   end
 
   create_table "users", :force => true do |t|

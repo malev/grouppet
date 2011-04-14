@@ -12,10 +12,11 @@ Factory.define :post do |post|
   post.user_id 1
 end
 
-Factory.define :page do |page|
+Factory.define :static_page do |page|
   page.id 1
-  page.name 'Lorem ipsum'
-  page.body 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
+  page.title 'about'
+  page.body 'this is the about page'
+  page.group 'static'
   page.user_id 1
 end
 
