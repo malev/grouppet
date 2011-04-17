@@ -6,7 +6,9 @@ gem 'clearance'
 gem 'coderay', '0.9.7'
 gem 'formtastic', '1.2.3'
 gem 'populator', '1.0.0'
-gem 'unicorn'
+gem 'unicorn', '3.5.0'
+gem 'kaminari', '0.10.4'
+gem "friendly_id", "3.2.1"
 
 group :development, :test do
   gem "ruby-debug19", '0.11.6'
@@ -18,16 +20,3 @@ group :development, :test do
   gem 'factory_girl_rails', '1.0.1'
   gem 'capybara', '0.4.1.2'
 end
-
-# Bundle the extra gems:
-# gem 'bj'
-# gem 'nokogiri'
-# gem 'sqlite3-ruby', :require => 'sqlite3'
-# gem 'aws-s3', :require => 'aws/s3'
-
-# Bundle gems for the local environment. Make sure to
-# put test-only gems in this group so their generators
-# and rake tasks are available in development mode:
-# group :development, :test do
-#   gem 'webrat'
-# end
