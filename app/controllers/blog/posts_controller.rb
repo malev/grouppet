@@ -1,5 +1,5 @@
-class Blog::PostsController < ApplicationController
+class Blog::PostsController < BlogsController
   def index
-    @posts = Post.show_public_posts
+    @posts = Post.blogger.page(params[:page])
   end
 end

@@ -1,0 +1,7 @@
+<h1>Contact us</h1>
+<div class='form'>
+  <%= semantic_form_for @message, :url => contact_path do |f| %>
+    <%= f.inputs %>
+    <%= f.buttons %>
+  <% end -%>
+</div>

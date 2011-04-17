@@ -1,3 +1,9 @@
+Factory.define :message do |m|
+  m.name "Marcos"
+  m.email "valid@valid.com"
+  m.content "lorem"
+end
+
 Factory.define :user do |user|
   user.id 1
   user.email Faker::Internet.email
@@ -5,11 +11,41 @@ Factory.define :user do |user|
   user.password_confirmation "password"
 end
 
-Factory.define :post do |post|
-  post.id 1
-  post.title 'Lorem ipsum'
-  post.body 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
-  post.user_id 1
+Factory.define :entry do |entry|
+  entry.id 1
+  entry.name 'Lorem ipsum'
+  entry.body 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
+  entry.user_id 1
+end
+
+Factory.define :newer, :parent => :entry do |entry|
+  entry.id 2
+  entry.name 'newer'
+  entry.body 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
+  entry.user_id 1
+  entry.created_at DateTime.now
+  entry.status 'published'
+  entry.type 'Post'
+end
+
+Factory.define :older, :parent => :entry do |entry|
+  entry.id 3
+  entry.name 'older'
+  entry.body 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
+  entry.user_id 1
+  entry.created_at DateTime.yesterday
+  entry.status 'published'
+  entry.type 'Post'
+end
+
+Factory.define :draft, :parent => :entry do |entry|
+  entry.id 4
+  entry.name 'draft'
+  entry.body 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
+  entry.user_id 1
+  entry.created_at DateTime.yesterday
+  entry.status 'draft'
+  entry.type 'Post'
 end
 
 Factory.define :static_page do |page|

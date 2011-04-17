@@ -21,3 +21,30 @@ describe "Main" do
     end
   end
 end
+
+describe 'Contact' do
+  it 'should respond ok' do
+    get '/contact'
+    response.status.should be(200)
+  end
+
+  it 'should display the form' do
+    visit '/contact'
+    page.should have_selector('div form')
+  end
+
+  it 'should let submit the form contact' do
+    visit '/contact'
+    fill_in('Name', :with => 'John')
+    fill_in('Email', :with => 'marcos.vanetta@gmail.com')
+    fill_in('message_content', :with => 'text')
+    click_button("message_submit")
+    page.should have_content("successfully")
+  end
+
+  it 'should not let submit if form is empty' do
+    visit '/contact'
+    click_button("message_submit")
+    page.should have_content("can't be blank")
+  end
+end
